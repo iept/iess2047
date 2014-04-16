@@ -1,4 +1,8 @@
 iess2047
 ========
 
-India Energy Security Scenarios 2047 Source Code
+<h3> India Energy Security Scenarios 2047 </h3>
+
+Source code for the IESS 2047 web interface.
+
+For more information on IESS 2047 : <a href="indiaenergy.gov.in">indiaenergy.gov.in</a>
