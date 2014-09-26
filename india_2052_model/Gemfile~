@@ -1,0 +1,5 @@
+source 'http://rubygems.org'
+gem 'rake'
+gem 'ffi', '1.9.3'
+gem 'excel_to_code', '0.2.3'
+gem 'minitest'

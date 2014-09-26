@@ -1,0 +1,78 @@
+!!!
+%html
+  %head
+    %title India Energy Security Scenarios, 2047
+    = stylesheet
+    = javascript
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-17161700-2']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    %link{href: "http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700", rel: "stylesheet", type: "text/css"}/
+
+  %body
+    #topbar2.tour_1
+      %ul.menu
+        %li#messages
+          %a{href:"http://indiaenergy.gov.in"} India Energy Security Scenarios, 2047
+
+
+
+        %li
+          #help
+            %a#helpLink{ :href => 'http://indiaenergy.gov.in/about_howto.php'} Help
+        - view_names.to_a.each do |action,title|
+          %li
+            %a{href:'', onclick:"twentyfifty.switchView('#{action}')"}= title
+        %li
+          Example Pathways
+          %ul
+            - saved_pathways.each do |name,code|
+              %li
+                %a{href:"", onclick:"twentyfifty.switchPathway('#{code}');$('ul#savedpathway_choices').toggle()"}= name
+
+        %li
+          #share
+            %a{href:'', onclick:"twentyfifty.switchView('share')"} Share
+
+
+
+
+    #results
+
+    #viewmessage.papers.tour_5
+      %h3 Hi, this is my paper.
+      %p see how cool this looks
+
+    #classic_controls.tour_2
+      #demand.tour_3
+        <h2>Choices around Demand</h2>
+        %table
+          /- structure.choices[21..36].each do |choice|
+          - [21,22,25,26,23,24,  27,31,  28,32,29,33,  30,  34,35,  36].each do |choice|
+            = classic_table_row_for_choice structure.choices[choice]
+
+      #supply.tour_4
+        <h2>Choices around Renewable and Clean Energy</h2>
+        %table
+          /- structure.choices[0..12].push(structure.choices[37]).each do |choice|
+          - [7,8,9,10,11,  5,  6,  13,14,15,16,  17].each do |choice|
+            = classic_table_row_for_choice structure.choices[choice]
+      #other
+        <h2>Choices around Conventional Energy</h2>
+        %table
+          /- structure.choices[0..37].each do |choice|
+          - [18,0, 19,1,2, 20,  3,4,  12,  37].each do |choice|
+            = classic_table_row_for_choice structure.choices[choice]
+
+
+    #tooltip
+    #footer
+      Based on <a href='http://planningcommission.nic.in/sectors/index.php?sectors=energy'>excel #{ModelStructure.instance.reported_calculator_version.to_s.downcase}</a>. The source code for this site is available under an open source licence from
+      %a{href: "https://github.com/iept/test-2047-calculator"}https://github.com/iept/test-2047-calculator

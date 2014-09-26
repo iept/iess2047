@@ -1,0 +1,958 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0d65eefb-64c1-472f-84ab-b71aaf1ec4aa" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/stylesheets/papers.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/twenty-fifty.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-0cfce50eef4cc5c2a65fc9648a28e60f.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-1338dbb96fa1d6f4db63ae7e15020944.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-1765ca9c71173b0731f6178d1b03812e.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-18bf7c91b95dfa5c8025869d3c90881e.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-18bf7c91b95dfa5c8025869d3c90881e.css.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-1d5bb9eba79205a0f3f4dca269cdb5d3.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-2e9325a401b22176655dfca80a1fbaf9.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-3082a87ff20fcfe6fcc5b171fb8fe3b3.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-3082a87ff20fcfe6fcc5b171fb8fe3b3.js.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-366c69db2b706fd80137d2c25abcde27.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-384d3aa6d9739e8a4dbe34ae58ab9183.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-44308c2effc7722c0912d71696a7384b.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-4b828a47b7bad066aad37f6d52409063.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-4d8d82bf7b82e896953052dbc3d574a3.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-52eaf20dfe9186deceb70e3057216a0c.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-52eaf20dfe9186deceb70e3057216a0c.js.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-55d3c4531ec6fef9aa3c313af11a1e3d.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-606dc03676f519f26125f09a12de1527.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-6964bdf181e20c34647482254ede9040.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-8dd8cc734c74fd8dfa273862bf6fae06.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-8e3f6159a507b01a2e4204ffa6925ef1.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-981f97dbdd2e264ef5a39d270b19248a.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-99c226dbd99508b80e917963af2f7aeb.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-a9112234c217f9e7cb20bb34a23756d4.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-baec5ca2d395a0c2cb1af50ce6408184.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-c73026d1bc9ff1fd647b59422b7104b5.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-d384e64213fe569563d05287f9d30c7b.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-e564fc9c392e247c959589788b23ef57.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-ec47a8497915a48aee94f01fb0fbc596.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-f67ccd5ce1418e0d79f92ac5b48a8b2c.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-f8c30ad199b9478b6c9a735c156a3716.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-f8c30ad199b9478b6c9a735c156a3716.css.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-fefb94436d5796d798a79d8513d1eccb.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/0.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/10.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/11.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/12.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/13.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/15.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/16.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/17.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/18.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/19.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/2.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/20.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/23.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/24.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/25.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/26.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/27.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/29.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/3.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/30.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/31.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/32.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/34.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/35.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/37.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/38.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/4.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/40.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/41.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/42.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/44.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/45.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/47.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/48.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/49.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/5.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/6.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/7.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/8.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/9.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/FuelCellsOrBatteries.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/InternationalAviation.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/InternationalShipping.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/OnePageNotesCombinedAndLeverOrdered.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/TidalRange.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/TidalStream.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/cover.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/onepage/tbd.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/default.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/javascripts/share.js.coffee" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/contrib/jquery142.js" afterPath="$PROJECT_DIR$/contrib/jquery142_old.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/javascripts/air_quality.js.coffee" afterPath="$PROJECT_DIR$/src/javascripts/air_quality.js.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/stylesheets/application.css" afterPath="$PROJECT_DIR$/src/stylesheets/application.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/javascripts/application.js" afterPath="$PROJECT_DIR$/src/javascripts/application.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.ru" afterPath="$PROJECT_DIR$/config.ru" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/stylesheets/controls.css.scss" afterPath="$PROJECT_DIR$/src/stylesheets/controls.css.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/javascripts/costs_common_methods.js.coffee" afterPath="$PROJECT_DIR$/src/javascripts/costs_common_methods.js.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/javascripts/costs_in_context.js.coffee" afterPath="$PROJECT_DIR$/src/javascripts/costs_in_context.js.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/javascripts/costs_sensitivity.js.coffee" afterPath="$PROJECT_DIR$/src/javascripts/costs_sensitivity.js.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/default.html.haml" afterPath="$PROJECT_DIR$/src/default.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/javascripts/electricity.js.coffee" afterPath="$PROJECT_DIR$/src/javascripts/electricity.js.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/javascripts/energy_security.js.coffee" afterPath="$PROJECT_DIR$/src/javascripts/energy_security.js.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/util/generate_fractions.rb" afterPath="$PROJECT_DIR$/util/generate_fractions.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/util/generate_hatches.rb" afterPath="$PROJECT_DIR$/util/generate_hatches.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/helper.rb" afterPath="$PROJECT_DIR$/src/helper.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contrib/highcharts.js" afterPath="$PROJECT_DIR$/contrib/highcharts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contrib/highcharts.setOptions.js" afterPath="$PROJECT_DIR$/contrib/highcharts.setOptions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/manifest.json" afterPath="$PROJECT_DIR$/public/assets/manifest.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/javascripts/map.js.coffee" afterPath="$PROJECT_DIR$/src/javascripts/map.js.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/stylesheets/pathways.css.scss" afterPath="$PROJECT_DIR$/src/stylesheets/pathways.css.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/javascripts/pathways.js.coffee" afterPath="$PROJECT_DIR$/src/javascripts/pathways.js.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/javascripts/primary_energy.js.coffee" afterPath="$PROJECT_DIR$/src/javascripts/primary_energy.js.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/stylesheets/sankey.css.scss" afterPath="$PROJECT_DIR$/src/stylesheets/sankey.css.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contrib/sankey.js" afterPath="$PROJECT_DIR$/contrib/sankey.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/javascripts/sankey_display.js.coffee" afterPath="$PROJECT_DIR$/src/javascripts/sankey_display.js.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/serve_model_data.rb" afterPath="$PROJECT_DIR$/src/serve_model_data.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/util/setup-2050-server-script.sh" afterPath="$PROJECT_DIR$/util/setup-2050-server-script.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/stylesheets/share.css.scss" afterPath="$PROJECT_DIR$/src/stylesheets/share.css.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/util/start-medium-instance.sh" afterPath="$PROJECT_DIR$/util/start-medium-instance.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/javascripts/story.js.coffee" afterPath="$PROJECT_DIR$/src/javascripts/story.js.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/stylesheets/tooltip.css.scss" afterPath="$PROJECT_DIR$/src/stylesheets/tooltip.css.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/stylesheets/topbar.css.scss" afterPath="$PROJECT_DIR$/src/stylesheets/topbar.css.scss" />
+    </list>
+    <ignored path="twenty-fifty.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="twenty-fifty" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="jquerytour.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/stylesheets/jquerytour.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="138" column="1" selection-start="2327" selection-end="2327" vertical-scroll-proportion="0.0" vertical-offset="2070" max-vertical-offset="3165">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pathways.css.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/stylesheets/pathways.css.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="54" column="1" selection-start="1210" selection-end="1210" vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="945">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="emmissions.js.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/javascripts/emmissions.js.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="147" column="10" selection-start="3900" selection-end="3900" vertical-scroll-proportion="0.0" vertical-offset="2175" max-vertical-offset="4470">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="map.js.coffee" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/javascripts/map.js.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="151" column="16" selection-start="3991" selection-end="3991" vertical-scroll-proportion="0.9522293" vertical-offset="1667" max-vertical-offset="2550">
+              <folding>
+                <marker date="1393550825266" expanded="true" signature="3973:3986" placeholder="..." />
+                <marker date="1393550825266" expanded="true" signature="3990:4073" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="primary_energy.js.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/javascripts/primary_energy.js.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="235" column="19" selection-start="9139" selection-end="9144" vertical-scroll-proportion="0.0" vertical-offset="3092" max-vertical-offset="3735">
+              <folding>
+                <marker date="1392292435000" expanded="true" signature="8316:8391" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="energy_security.js.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/javascripts/energy_security.js.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="37" selection-start="907" selection-end="907" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4095">
+              <folding>
+                <marker date="1393545917678" expanded="true" signature="7940:7967" placeholder="..." />
+                <marker date="1393545917678" expanded="true" signature="7940:8560" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="simple_sankey.js.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/javascripts/simple_sankey.js.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="110" column="21" selection-start="3679" selection-end="3681" vertical-scroll-proportion="0.0" vertical-offset="1650" max-vertical-offset="2970">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="share.js.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/javascripts/share.js.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1905">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sankey.css.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/stylesheets/sankey.css.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="23" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1290">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sankey.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contrib/sankey.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="19" selection-start="55" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="12345">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/javascripts/pathways.js.coffee" />
+        <option value="$PROJECT_DIR$/src/javascripts/electricity.js.coffee" />
+        <option value="$PROJECT_DIR$/src/default.html.haml" />
+        <option value="$PROJECT_DIR$/contrib/tour.js" />
+        <option value="$PROJECT_DIR$/contrib/slider.js" />
+        <option value="$PROJECT_DIR$/contrib/jquery142.js" />
+        <option value="$PROJECT_DIR$/src/javascripts/application.js" />
+        <option value="$PROJECT_DIR$/src/stylesheets/userguide.css" />
+        <option value="$PROJECT_DIR$/src/stylesheets/jquerytour.css" />
+        <option value="$PROJECT_DIR$/src/javascripts/emmissions.js.coffee" />
+        <option value="$PROJECT_DIR$/src/stylesheets/pathways.css.scss" />
+        <option value="$PROJECT_DIR$/src/javascripts/sankey_display.js.coffee" />
+        <option value="$PROJECT_DIR$/src/stylesheets/sankey.css.scss" />
+        <option value="$PROJECT_DIR$/src/javascripts/primary_energy.js.coffee" />
+        <option value="$PROJECT_DIR$/src/javascripts/energy_security.js.coffee" />
+        <option value="$PROJECT_DIR$/src/javascripts/map.js.coffee" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="65" />
+    <option name="y" value="24" />
+    <option name="width" value="1301" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twenty-fifty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twenty-fifty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twenty-fifty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twenty-fifty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twenty-fifty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twenty-fifty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twenty-fifty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twenty-fifty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twenty-fifty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twenty-fifty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twenty-fifty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twenty-fifty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twenty-fifty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twenty-fifty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twenty-fifty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contrib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/javascripts" />
+      <recent name="$PROJECT_DIR$/src/stylesheets" />
+      <recent name="$PROJECT_DIR$/contrib" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/javascripts" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="RSpecRunConfigurationType" factoryName="RSpec">
+      <predefined_log_file id="RUBY_RSPEC" enabled="true" />
+      <module name="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_RUNNER_PATH" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="**/*_spec.rb" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_EXAMPLE_NAME" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="SPEC_ARGS" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_VERSION" VALUE="" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_SPEC_RUNNER" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
+      <RSPEC_RUN_CONFIG_SETTINGS_ID NAME="FULL_BACKTRACE" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="RubyRunConfigurationType" factoryName="Ruby">
+      <module name="" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest">
+      <predefined_log_file id="RUBY_TESTUNIT" enabled="true" />
+      <module name="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_SCRIPT" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
+      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0d65eefb-64c1-472f-84ab-b71aaf1ec4aa" name="Default" comment="" />
+      <created>1387600173607</created>
+      <updated>1387600173607</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27517295" sideWeight="0.6504329" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36049107" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32736155" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/javascripts/simple_sankey.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="21" selection-start="3679" selection-end="3681" vertical-scroll-proportion="0.0" vertical-offset="1650" max-vertical-offset="2970">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/share.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1905">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/sankey.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="23" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1290">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contrib/sankey.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="19" selection-start="55" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="12345">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contrib/tour.tools.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3405" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/jquerytour.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="138" column="1" selection-start="2327" selection-end="2327" vertical-scroll-proportion="0.0" vertical-offset="2070" max-vertical-offset="3165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/pathways.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="1" selection-start="1210" selection-end="1210" vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/emmissions.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="145" column="17" selection-start="3859" selection-end="3859" vertical-scroll-proportion="0.0" vertical-offset="2175" max-vertical-offset="4470">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/map.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="143" selection-end="143" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="2550">
+          <folding>
+            <marker date="1393550825266" expanded="true" signature="3973:3986" placeholder="..." />
+            <marker date="1393550825266" expanded="true" signature="3990:4073" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/primary_energy.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="173" column="24" selection-start="5464" selection-end="5464" vertical-scroll-proportion="0.0" vertical-offset="2595" max-vertical-offset="3735">
+          <folding>
+            <marker date="1392292435000" expanded="true" signature="8316:8391" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/simple_sankey.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="21" selection-start="3679" selection-end="3681" vertical-scroll-proportion="0.0" vertical-offset="1650" max-vertical-offset="2970">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/share.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1905">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/sankey.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="23" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1290">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contrib/sankey.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="19" selection-start="55" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="12345">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/sankey_display.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="25" selection-start="1532" selection-end="1536" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="3660" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contrib/tour.tools.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3405" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/jquerytour.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="138" column="1" selection-start="2327" selection-end="2327" vertical-scroll-proportion="0.0" vertical-offset="2070" max-vertical-offset="3165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/pathways.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="1" selection-start="1210" selection-end="1210" vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/emmissions.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="145" column="17" selection-start="3859" selection-end="3859" vertical-scroll-proportion="0.0" vertical-offset="2175" max-vertical-offset="4470">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/map.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="38" selection-start="2797" selection-end="2797" vertical-scroll-proportion="0.0" vertical-offset="1560" max-vertical-offset="2550">
+          <folding>
+            <marker date="1393550825266" expanded="true" signature="3973:3986" placeholder="..." />
+            <marker date="1393550825266" expanded="true" signature="3990:4073" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/simple_sankey.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="21" selection-start="3679" selection-end="3681" vertical-scroll-proportion="0.0" vertical-offset="1650" max-vertical-offset="2970">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/share.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1905">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/sankey.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="23" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1290">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contrib/sankey.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="19" selection-start="55" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="12345">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/sankey_display.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="25" selection-start="1532" selection-end="1536" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="3660" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contrib/tour.tools.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3405" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/jquerytour.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="138" column="1" selection-start="2327" selection-end="2327" vertical-scroll-proportion="0.0" vertical-offset="2070" max-vertical-offset="3165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/pathways.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="1" selection-start="1210" selection-end="1210" vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/emmissions.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="145" column="17" selection-start="3859" selection-end="3859" vertical-scroll-proportion="0.0" vertical-offset="2175" max-vertical-offset="4470">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/map.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="38" selection-start="2797" selection-end="2797" vertical-scroll-proportion="0.0" vertical-offset="1560" max-vertical-offset="2550">
+          <folding>
+            <marker date="1393550825266" expanded="true" signature="3973:3986" placeholder="..." />
+            <marker date="1393550825266" expanded="true" signature="3990:4073" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/simple_sankey.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="21" selection-start="3679" selection-end="3681" vertical-scroll-proportion="0.0" vertical-offset="1650" max-vertical-offset="2970">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/share.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1905">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/sankey.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="23" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1290">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contrib/sankey.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="19" selection-start="55" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="12345">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="84" selection-start="1698" selection-end="1698" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HACKING">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="20.172413" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/pathways.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="176" column="88" selection-start="5645" selection-end="5645" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contrib/jquery142.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10337" column="0" selection-start="397659" selection-end="397659" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contrib/tour.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="40" selection-start="2961" selection-end="2961" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contrib/tour.tools.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/jquerytour.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="138" column="1" selection-start="2327" selection-end="2327" vertical-scroll-proportion="0.0" vertical-offset="2070" max-vertical-offset="3165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/pathways.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="1" selection-start="1210" selection-end="1210" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/share.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stylesheets/sankey.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="23" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contrib/sankey.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="19" selection-start="55" selection-end="57" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="12345">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/simple_sankey.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="21" selection-start="3679" selection-end="3681" vertical-scroll-proportion="0.0" vertical-offset="1650" max-vertical-offset="2970">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/sankey_display.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="2" selection-start="1458" selection-end="1458" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3660" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/emmissions.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="147" column="10" selection-start="3900" selection-end="3900" vertical-scroll-proportion="0.0" vertical-offset="2175" max-vertical-offset="4470">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/primary_energy.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="235" column="19" selection-start="9139" selection-end="9144" vertical-scroll-proportion="0.0" vertical-offset="3092" max-vertical-offset="3735">
+          <folding>
+            <marker date="1392292435000" expanded="true" signature="8316:8391" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/energy_security.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="37" selection-start="907" selection-end="907" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4095">
+          <folding>
+            <marker date="1393545917678" expanded="true" signature="7940:7967" placeholder="..." />
+            <marker date="1393545917678" expanded="true" signature="7940:8560" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/javascripts/map.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="151" column="16" selection-start="3991" selection-end="3991" vertical-scroll-proportion="0.9522293" vertical-offset="1667" max-vertical-offset="2550">
+          <folding>
+            <marker date="1393550825266" expanded="true" signature="3973:3986" placeholder="..." />
+            <marker date="1393550825266" expanded="true" signature="3990:4073" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+
