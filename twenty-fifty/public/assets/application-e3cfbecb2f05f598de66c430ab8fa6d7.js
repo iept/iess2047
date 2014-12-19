@@ -12488,7 +12488,9 @@ $(function() {
         total_steps	= config.length;
 
     //show the tour controls
-    showControls();
+
+    // commented to discard display of 'New to the Webtool'
+    //showControls();
 
     /*
      we can restart or stop the tour,
@@ -13481,6 +13483,165 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
   window.twentyfifty.cost_override_in_place_warning = cost_override_in_place_warning;
 
 }).call(this);
+
+function highlight(series, index, hide) {
+	
+                $(series).each(function (i, serie) {
+
+		   if(i != index) {
+			if(serie.type == 'area'){
+			//serie.area.attr({ "fill": (hide ? "#D4D4D4": serie.color) });
+			serie.area.attr({ "opacity": (hide ? 0.25: 0.75) });
+			///serie.area.attr({ "opacity": 0.75 });
+			
+			} if(serie.type == 'column'){
+			$.each(serie.data, function (k, data) {
+                            if(data.series) {
+                                data.graphic.attr({ "opacity": (hide ? 0.25: 1) });
+                            }
+                        });
+			} if(serie.type == 'line'){
+			$.each(serie.data, function (k, data) {
+                            if(data.series) {
+                                data.series.graph && data.series.graph.attr("stroke", (hide ? "#D4D4D4": serie.color));
+                            }
+                        });
+			}
+                    
+	           }else{
+			if(serie.type == 'area'){
+			serie.area.attr({ "fill": serie.color });
+			serie.area.attr({ "opacity": 1 });
+			} if(serie.type == 'column'){ 
+			$.each(serie.data, function (k, data) {
+                            if(data.series) {
+                                data.graphic.attr({ "opacity": 1 });
+                            }
+                        });
+			} if(serie.type == 'line'){
+			$.each(serie.data, function (k, data) {
+                            if(data.series) {
+                                data.series.graph && data.series.graph.attr("stroke", serie.color);
+                            }
+                        });
+			}
+		}
+                });
+            }
+
+function highData(n,series,hide){
+		if(hide){
+			var Ddata = [Highcharts.numberFormat(series.yData[0], 0, ','),Highcharts.numberFormat(series.yData[3], 0, ','),Highcharts.numberFormat(series.yData[5], 0, ','),Highcharts.numberFormat(series.yData[7], 0, ',')];
+		
+			for(var i=0; i<4; i++){
+				$("#display-data"+n+" #SeriesData"+i).html(Ddata[i]);
+			}
+		}else {
+			for(var i=0; i<4; i++){
+				$("#display-data"+n+" #SeriesData"+i).empty();
+			}
+		}
+		}
+
+function clickItem(series, $legendItem, options) {
+
+            series.setVisible();
+            $legendItem.css(
+                options[series.visible ? 'itemStyle' : 'itemHiddenStyle']
+            );
+            if(series.visible)
+                $legendItem.css({color: series.color});
+            
+        }
+
+var finalEnergyId =[];
+var $legend =[];
+
+function callCommon(chartIdArr){
+
+	for(var i = 0; i< chartIdArr.length; i++){
+		var parentElement = $(chartIdArr[i])[0];
+		//alert(parentElement.children[0].id);
+		if(parentElement.children[0]){
+		finalEnergyId[i] = parentElement.children[0].id;
+		}
+		$('#custom-legend'+i).remove();
+		$('#display-data'+i).remove();
+	
+
+		// display data of series in container
+		var $xData = $('<div id="display-data'+i+'">')
+		    .css({
+		        width: 270,
+		        marginLeft: 55,
+		    })
+		    .appendTo(chartIdArr[i]);
+		for(var z=0; z<4; z++){
+		$('<p id="SeriesData'+z+'">')
+		    .css({
+		        width: 43,
+		        paddingRight: 5,
+		        paddingLeft: 5,
+			color:'#000',
+			margin:0,
+			float:'left', 
+			fontWeight:'bold',
+			fontSize:10
+		    })
+		    .appendTo($xData);
+		}
+
+		// Create the legend box
+		 $legend[i] = $('<div id="custom-legend'+i+'">')
+		    .css({
+		        width: 80,
+		        maxHeight: 210,
+		        padding: 10,
+		        position: 'absolute',
+		        overflow: 'auto',
+		        right: -25,
+		        top: 75
+		    })
+		    .appendTo('#'+finalEnergyId[i]);
+
+	}
+
+}
+
+function callLegand(options0,chartSeries,series,l_index){
+
+ // create the legend item            
+            var $legendItem = $('<div>')
+                .css({
+                    position: 'relative',
+                    paddingTo: 5,
+		    paddingBottom: 5
+                })
+                .css(options0[series.visible ? 'itemStyle' : 'itemHiddenStyle'])
+                .css({color: series.color,font: '8pt sans-serif'})
+                .html(series.name)
+                .appendTo($legend[l_index]);
+  
+            // click handler 
+            $legendItem.click(function() {
+                clickItem(series, $legendItem,options0);
+            });
+
+	    // legend mouseOver event
+	    $legendItem.hover(function() {
+		$(this).css('fontWeight','bold');		
+		highlight(chartSeries, series.index, true);
+		highData(l_index,series,true);			 
+            }, 
+            function () {
+                $(this).css('fontWeight','normal');
+		highlight(chartSeries, series.index, false);
+		highData(l_index,series,false);
+            });	    
+	    // End legend mouseOver event  
+
+}
+
 (function() {
   var PrimaryEnergy;
 
@@ -13493,15 +13654,11 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
       target.append("<div id='demand_chart' class='chart'></div>");
       target.append("<div id='supply_chart' class='chart'></div>");
       target.append("<div id='dependency_chart' class='chart'></div>");
-      document.getElementById("demand_chart").style.width = "24%";
-      document.getElementById("supply_chart").style.width = "24%";
-      document.getElementById("dependency_chart").style.width = "24%";
       document.getElementById("results").style.overflow = "inherit";
-      document.getElementById("viewmessage").style.width = "15%";
-      document.getElementById("viewmessage").style.margin = "1% 0% 1% 1%";
       this.final_energy_chart = new Highcharts.Chart({
         chart: {
-          renderTo: 'demand_chart'
+          renderTo: 'demand_chart',
+	  height:300
         },
         title: {
           text: 'Energy Demand'
@@ -13512,42 +13669,54 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
         yAxis: {
           title: null,
           min: 0,
-          max: 40000
+          max: 24000,
+	  width:225
+        },
+	xAxis:{	
+	  width:240
+	},
+        plotOptions: {
+            area: {
+                lineWidth: 0.1,
+            },
+	series: {
+                states: {
+                    hover: {
+                        enabled: true,
+                        lineWidth: 2,
+                        lineColor: '#6c6c6c',
+                    }
+                },
+	 	events: {
+                    mouseOver: function () {
+			
+                        var Ddata = [Highcharts.numberFormat(this.yData[0], 0, ','),Highcharts.numberFormat(this.yData[3], 0, ','),Highcharts.numberFormat(this.yData[5], 0, ','),Highcharts.numberFormat(this.yData[7], 0, ',')];
+		
+			for(var i=0; i<4; i++){
+
+			$("#display-data0 #SeriesData"+i).html(Ddata[i]);
+
+			}
+                    },
+                    mouseOut: function () {
+                        for(var i=0; i<4; i++){
+
+			$("#display-data0 #SeriesData"+i).empty();
+
+			}
+                    }
+                }
+            }
         },
         series: [],
         legend: {
-          enabled: true,
-          backgroundColor: 'rgba(0,0,0,0.1)',
-          floating: true,
-          align: 'center',
-          verticalAlign: 'middle',
-          itemStyle: {
-            font: '8pt sans-serif'
-          },
-          itemDistance: '5pt',
-          layout: 'vertical',
-          left: 20,
-          labelFormatter: function() {
-            var numWordsPerLine, str, word, words;
-            if (this.name.toLowerCase() === "energy demand in least effort scenario") {
-              return "Least effort";
-            }
-            words = this.name.split(/[\s]+/).splice(0, 6);
-            numWordsPerLine = 4;
-            str = [];
-            for (word in words) {
-              if (word > 0 && word % numWordsPerLine === 0) {
-                str.push("<br>");
-              }
-              str.push(words[word]);
-            }
-            return str.join(" ");
-          }
+          enabled: false
         }
       });
       this.primary_energy_chart = new Highcharts.Chart({
         chart: {
-          renderTo: 'supply_chart'
+          renderTo: 'supply_chart',
+	  height:300
         },
         title: {
           text: 'Energy Supply'
@@ -13558,43 +13727,55 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
         yAxis: {
           title: null,
           min: 0,
-          max: 40000
+          max: 40000,
+          width:225
+        },
+	xAxis: {
+	   width:240
+	},
+        plotOptions: {
+            area: {
+                lineWidth: 0.1,
+            },
+	series: {
+                states: {
+                    hover: {
+                        enabled: true,
+                        lineWidth: 2,
+                        lineColor: '#6c6c6c',
+                    }
+                },
+	 	events: {
+                    mouseOver: function () {
+			
+                        var Ddata = [Highcharts.numberFormat(this.yData[0], 0, ','),Highcharts.numberFormat(this.yData[3], 0, ','),Highcharts.numberFormat(this.yData[5], 0, ','),Highcharts.numberFormat(this.yData[7], 0, ',')];
+		
+			for(var i=0; i<4; i++){
+
+			$("#display-data1 #SeriesData"+i).html(Ddata[i]);
+
+			}
+                    },
+                    mouseOut: function () {
+                        for(var i=0; i<4; i++){
+
+			$("#display-data1 #SeriesData"+i).empty();
+
+			}
+                    }
+                }
+            }
         },
         series: [],
         legend: {
-          enabled: true,
-          backgroundColor: 'rgba(0,0,0,0.1)',
-          floating: true,
-          align: 'center',
-          verticalAlign: 'middle',
-          itemStyle: {
-            font: '8pt sans-serif'
-          },
-          itemDistance: '5pt',
-          layout: 'vertical',
-          left: 20,
-          labelFormatter: function() {
-            var numWordsPerLine, str, word, words;
-            if (this.name.toLowerCase() === "energy supply in least effort scenario") {
-              return "Least effort";
-            }
-            words = this.name.split(/[\s]+/).splice(0, 6);
-            numWordsPerLine = 4;
-            str = [];
-            for (word in words) {
-              if (word > 0 && word % numWordsPerLine === 0) {
-                str.push("<br>");
-              }
-              str.push(words[word]);
-            }
-            return str.join(" ");
-          }
+          enabled: false
         }
       });
       return this.dependency_chart = new Highcharts.Chart({
         chart: {
           renderTo: 'dependency_chart',
-          type: 'line'
+          type: 'line',
+	  height:300
         },
         title: {
           text: 'Import Dependence'
@@ -13605,9 +13786,11 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
         yAxis: {
           title: null,
           min: 0,
-          max: 100
+          max: 100,
+	  width:225
+	  
         },
-        xAxis: {
+        xAxis: {width:240,
           labels: {
             formatter: function() {
               switch (this.value) {
@@ -13620,39 +13803,41 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
                 case 2047:
                   return 2047;
               }
-            }
+            },
+height:10
           },
           value: 148400.,
           dashStyle: 'longdashdot'
         },
-        legend: {
-          enabled: true,
-          backgroundColor: 'rgba(0,0,0,0.1)',
-          floating: true,
-          align: 'right',
-          verticalAlign: 'bottom',
-          itemStyle: {
-            font: '8pt sans-serif'
-          },
-          itemDistance: '5pt',
-          layout: 'vertical',
-          left: 20,
-          labelFormatter: function() {
-            var numWordsPerLine, str, word, words;
-            words = this.name.split(/[\s]+/).splice(0, 2);
-            numWordsPerLine = 4;
-            str = [];
-            for (word in words) {
-              if (word > 0 && word % numWordsPerLine === 0) {
-                str.push("<br>");
-              }
-              str.push(words[word]);
+        plotOptions: {	
+	series: {
+	 	events: {
+                    mouseOver: function () {
+			
+                        var Ddata = [Highcharts.numberFormat(this.yData[0], 0, ','),Highcharts.numberFormat(this.yData[3], 0, ','),Highcharts.numberFormat(this.yData[5], 0, ','),Highcharts.numberFormat(this.yData[7], 0, ',')];
+		
+			for(var i=0; i<4; i++){
+
+			$("#display-data2 #SeriesData"+i).html(Ddata[i]);
+
+			}
+                    },
+                    mouseOut: function () {
+                        for(var i=0; i<4; i++){
+
+			$("#display-data2 #SeriesData"+i).empty();
+
+			}
+                    }
+                }
             }
-            return str.join(" ");
-          }
+        },
+        legend: {
+          enabled: false
         },
         tooltip: {
           formatter: function() {
+		
             return "<b>" + this.series.name + "</b><br/>" + this.x + ": " + (Highcharts.numberFormat(this.y, 0, ',')) + " % Imported";
           }
         },
@@ -13669,7 +13854,8 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
     };
 
     PrimaryEnergy.prototype.updateResults = function(pathway) {
-      var d, data, i, name, titles, titles_dependency, _i, _j, _k, _len, _len1, _len2;
+      var d, i, name, data, titles, titles_dependency, _i, _j, _k, _len, _len1, _len2;
+
       this.pathway = pathway;
       if (!((this.dependency_chart != null) && (this.final_energy_chart != null) && (this.primary_energy_chart != null))) {
         this.setup();
@@ -13698,12 +13884,48 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
         }
         i++;
       }
-      this.dependency_chart.series[3].color = "#000000";
+      this.dependency_chart.series[3].color = "#910000";
       this.dependency_chart.series[3].options.lineWidth = 3;
       this.dependency_chart.series[3].options.dashStyle = "longdashdot";
+      
       titles = ["Telecom", "Transport", "Industry", "Cooking", "Lighting & Appliances", "Agriculture"];
       i = 0;
+
+      data = this.pathway['demand_do_nothing']["Do-nothing Scenario"];
+      if (this.final_energy_chart.series[i] != null) {
+        this.final_energy_chart.series[i].setData(data, false);
+      } else {
+        this.final_energy_chart.addSeries({
+          type: 'line',
+          name: 'Least Effort',
+          data: data,
+          lineColor: '#FF0000',
+          color: '#FF0000',
+          lineWidth: 3,
+          dashStyle: 'Dot',
+          shadow: false
+        }, false);
+      }
+      i++;
+
+      data = this.pathway['final_energy_demand']["Scenario Demand"];
+      if (this.final_energy_chart.series[i] != null) {
+        this.final_energy_chart.series[i].setData(data, false);
+      } else {
+        this.final_energy_chart.addSeries({
+          type: 'line',
+          name: 'Total Demand',
+          data: data,
+          lineColor: '#000',
+          color: '#000',
+          lineWidth: 1.5,
+          shadow: true
+        }, false);
+      }
+      i++;
+
       for (_j = 0, _len1 = titles.length; _j < _len1; _j++) {
+	
         name = titles[_j];
         data = this.pathway['final_energy_demand'][name];
         if (this.final_energy_chart.series[i] != null) {
@@ -13716,39 +13938,41 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
         }
         i++;
       }
-      data = this.pathway['demand_do_nothing']["Do-nothing Scenario"];
-      if (this.final_energy_chart.series[i] != null) {
-        this.final_energy_chart.series[i].setData(data, false);
+      
+      
+      titles = ["Bio Energy", "Renewables and Clean Energy", "Electricity oversupply (imports)", "Coal", "Oil", "Natural gas"];
+      i = 0;
+      data = this.pathway['supply_do_nothing']["Do-nothing Scenario"];
+      if (this.primary_energy_chart.series[i] != null) {
+        this.primary_energy_chart.series[i].setData(data, false);
       } else {
-        this.final_energy_chart.addSeries({
+        this.primary_energy_chart.addSeries({
           type: 'line',
-          name: 'Energy demand in least effort scenario',
+          name: 'Least Effort',
           data: data,
           lineColor: '#FF0000',
           color: '#FF0000',
-          lineWidth: 2,
+          lineWidth: 3,
           dashStyle: 'Dot',
           shadow: false
         }, false);
       }
       i++;
-      data = this.pathway['final_energy_demand']["Scenario Demand"];
-      if (this.final_energy_chart.series[i] != null) {
-        this.final_energy_chart.series[i].setData(data, false);
+      data = this.pathway['primary_energy_supply']["Total Primary Supply"];
+      if (this.primary_energy_chart.series[i] != null) {
+        this.primary_energy_chart.series[i].setData(data, false);
       } else {
-        this.final_energy_chart.addSeries({
+        this.primary_energy_chart.addSeries({
           type: 'line',
-          name: 'Total demand in your chosen scenario',
+          name: 'Total Supply',
           data: data,
           lineColor: '#000',
           color: '#000',
-          lineWidth: 2,
+          lineWidth: 1.5,
           shadow: false
         }, false);
       }
       i++;
-      titles = ["Bio Energy", "Renewables and Clean Energy", "Electricity oversupply (imports)", "Coal", "Oil", "Natural gas"];
-      i = 0;
       for (_k = 0, _len2 = titles.length; _k < _len2; _k++) {
         name = titles[_k];
         data = this.pathway['primary_energy_supply'][name];
@@ -13762,42 +13986,37 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
         }
         i++;
       }
-      data = this.pathway['supply_do_nothing']["Do-nothing Scenario"];
-      if (this.primary_energy_chart.series[i] != null) {
-        this.primary_energy_chart.series[i].setData(data, false);
-      } else {
-        this.primary_energy_chart.addSeries({
-          type: 'line',
-          name: 'Energy supply in least effort scenario',
-          data: data,
-          lineColor: '#FF0000',
-          color: '#FF0000',
-          lineWidth: 2,
-          dashStyle: 'Dot',
-          shadow: false
-        }, false);
-      }
-      i++;
-      data = this.pathway['primary_energy_supply']["Total Primary Supply"];
-      if (this.primary_energy_chart.series[i] != null) {
-        this.primary_energy_chart.series[i].setData(data, false);
-      } else {
-        this.primary_energy_chart.addSeries({
-          type: 'line',
-          name: 'Total supply in your chosen scenario',
-          data: data,
-          lineColor: '#000',
-          color: '#000',
-          lineWidth: 2,
-          shadow: false
-        }, false);
-      }
-      i++;
+// **************** Start Custom Legand *****************     
+var ChartArr = [this.final_energy_chart.series,this.primary_energy_chart.series,this.dependency_chart.series];
+
+var optionsArr = [this.final_energy_chart.options.legend,this.primary_energy_chart.options.legend,this.dependency_chart.options.legend];
+
+var chartIdArr = ['#demand_chart','#supply_chart','#dependency_chart']; 
+
+// calling common layout of legand
+
+callCommon(chartIdArr);		
+
+// Creating legand
+// Display data of corresponding series on mouse over on legand item
+// On mouse over respective series will highlight and other will fade out
+// Data will display on mouse over on series area 
+
+for(var L=0; L<3; L++){
+        $.each(ChartArr[L], function(i, series) {
+		chartSeries = ChartArr[L];
+		options = optionsArr[L];
+		callLegand(options,chartSeries,series,L);            
+        });	
+}
+
+// **************** End Custom Legand ***************** 
+
       this.dependency_chart.redraw();
-      this.final_energy_chart.redraw();
+      this.final_energy_chart.redraw();	
       this.primary_energy_chart.redraw();
-      document.getElementById("viewmessage").style.display = "inline-block";
-      return document.getElementById("viewmessage").innerHTML = "<h3> Is this scenario over-generating electricity ?  </h3> <p> Your chosen energy scenario creates a maximum of <b> " + Math.round(Math.abs(Math.min(this.pathway['electricity']['electricity_exports']["Electricity exports"][0], this.pathway['electricity']['electricity_exports']["Electricity exports"][1], this.pathway['electricity']['electricity_exports']["Electricity exports"][2], this.pathway['electricity']['electricity_exports']["Electricity exports"][3], this.pathway['electricity']['electricity_exports']["Electricity exports"][4], this.pathway['electricity']['electricity_exports']["Electricity exports"][5], this.pathway['electricity']['electricity_exports']["Electricity exports"][6], this.pathway['electricity']['electricity_exports']["Electricity exports"][7]))) + " </b> TWh/year of excess electricity, potentially available for exports. <br> <br> If your energy choices lead to exports, you may want to bring down conventional and/or renewable energy supplies a notch, or ramp up energy demand. </p>";
+      
+      return document.getElementById("viewmessage").innerHTML = "<h3> Is this scenario over-generating electricity ?  </h3> <p> Your chosen energy scenario creates a maximum of <b> " + Math.round(Math.abs(Math.min(this.pathway['electricity']['electricity_exports']["Electricity exports"][0], this.pathway['electricity']['electricity_exports']["Electricity exports"][1], this.pathway['electricity']['electricity_exports']["Electricity exports"][2], this.pathway['electricity']['electricity_exports']["Electricity exports"][3], this.pathway['electricity']['electricity_exports']["Electricity exports"][4], this.pathway['electricity']['electricity_exports']["Electricity exports"][5], this.pathway['electricity']['electricity_exports']["Electricity exports"][6], this.pathway['electricity']['electricity_exports']["Electricity exports"][7]))) + " </b> TWh/year of excess electricity, potentially available for exports. If your energy choices lead to exports, you may want to bring down conventional and/or renewable energy supplies a notch, or ramp up energy demand. </p>";
     };
 
     return PrimaryEnergy;
@@ -13807,6 +14026,9 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
   window.twentyfifty.views['primary_energy_chart'] = new PrimaryEnergy;
 
 }).call(this);
+
+/**************************** Start Electricity ***********/
+
 (function() {
   var Electricity;
 
@@ -13817,15 +14039,21 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
       var target;
       target = $('#results');
       target.append("<div id='demand_chart' class='chart'></div>").append("<div id='supply_chart' class='chart'></div>").append("<div id='electricity_exports' class='chart'></div>");
-      document.getElementById("demand_chart").style.width = "24%";
-      document.getElementById("supply_chart").style.width = "24%";
-      document.getElementById("electricity_exports").style.width = "24%";
       document.getElementById("results").style.overflow = "inherit";
-      document.getElementById("viewmessage").style.width = "15%";
-      document.getElementById("viewmessage").style.margin = "1% 0% 1% 1%";
+ 
+      $("#supply_chart").css({
+                    marginLeft: '2%',
+                    width: '36%',
+                });
+     $("#electricity_exports").css({
+                    marginLeft: 0,
+                    width: '28%',
+                });
+	
       this.demand_chart = new Highcharts.Chart({
         chart: {
-          renderTo: 'demand_chart'
+          renderTo: 'demand_chart',
+	  height:300
         },
         title: {
           text: 'Electricity demand'
@@ -13836,42 +14064,44 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
         yAxis: {
           title: null,
           min: 0,
-          max: 10000
+          max: 7500,
+	  width:225,
+        },
+	xAxis:{
+	  width:240,	
+	},
+	plotOptions: {	
+	   series: {
+	 	events: {
+                    mouseOver: function () {
+			
+                        var Ddata = [Highcharts.numberFormat(this.yData[0], 0, ','),Highcharts.numberFormat(this.yData[3], 0, ','),Highcharts.numberFormat(this.yData[5], 0, ','),Highcharts.numberFormat(this.yData[7], 0, ',')];
+		
+			for(var i=0; i<4; i++){
+
+			$("#display-data0 #SeriesData"+i).html(Ddata[i]);
+
+			}
+                    },
+                    mouseOut: function () {
+                        for(var i=0; i<4; i++){
+
+			$("#display-data0 #SeriesData"+i).empty();
+
+			}
+                    }
+                }
+            }
         },
         legend: {
-          enabled: true,
-          backgroundColor: 'rgba(0,0,0,0.1)',
-          floating: true,
-          align: 'center',
-          verticalAlign: 'middle',
-          itemStyle: {
-            font: '8pt sans-serif'
-          },
-          itemDistance: '5pt',
-          layout: 'vertical',
-          left: 20,
-          labelFormatter: function() {
-            var numWordsPerLine, str, word, words;
-            if (this.name.toLowerCase() === "energy demand in least effort scenario") {
-              return "Least effort";
-            }
-            words = this.name.split(/[\s]+/).splice(0, 4);
-            numWordsPerLine = 4;
-            str = [];
-            for (word in words) {
-              if (word > 0 && word % numWordsPerLine === 0) {
-                str.push("<br>");
-              }
-              str.push(words[word]);
-            }
-            return str.join(" ");
-          }
+          enabled: false,
         },
         series: []
       });
       this.supply_chart = new Highcharts.Chart({
         chart: {
-          renderTo: 'supply_chart'
+          renderTo: 'supply_chart',
+	  height:300
         },
         title: {
           text: 'Electricity supply'
@@ -13882,43 +14112,45 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
         yAxis: {
           title: null,
           min: 0,
-          max: 10000
+          max: 10000,
+	  width:225
+        },
+	xAxis:{
+	  width:240,	
+	},
+	plotOptions: {	
+            series: {
+	 	events: {
+                    mouseOver: function () {
+			
+                        var Ddata = [Highcharts.numberFormat(this.yData[0], 0, ','),Highcharts.numberFormat(this.yData[3], 0, ','),Highcharts.numberFormat(this.yData[5], 0, ','),Highcharts.numberFormat(this.yData[7], 0, ',')];
+		
+			for(var i=0; i<4; i++){
+
+			$("#display-data1 #SeriesData"+i).html(Ddata[i]);
+
+			}
+                    },
+                    mouseOut: function () {
+                        for(var i=0; i<4; i++){
+
+			$("#display-data1 #SeriesData"+i).empty();
+
+			}
+                    }
+                }
+            }
         },
         legend: {
-          enabled: true,
-          backgroundColor: 'rgba(0,0,0,0.1)',
-          floating: true,
-          align: 'center',
-          verticalAlign: 'middle',
-          itemStyle: {
-            font: '8pt sans-serif'
-          },
-          itemDistance: '5pt',
-          layout: 'vertical',
-          left: 20,
-          labelFormatter: function() {
-            var numWordsPerLine, str, word, words;
-            if (this.name.toLowerCase() === "energy supply in least effort scenario") {
-              return "Least effort";
-            }
-            words = this.name.split(/[\s]+/).splice(0, 2);
-            numWordsPerLine = 4;
-            str = [];
-            for (word in words) {
-              if (word > 0 && word % numWordsPerLine === 0) {
-                str.push("<br>");
-              }
-              str.push(words[word]);
-            }
-            return str.join(" ");
-          }
+          enabled: false
         },
         series: []
       });
       return this.electricity_exports = new Highcharts.Chart({
         chart: {
           renderTo: 'electricity_exports',
-          type: 'line'
+          type: 'line',
+	  height:300
         },
         title: {
           text: 'Over-generation / Exports'
@@ -13930,7 +14162,34 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
           title: null,
           min: 0,
           max: 8000,
-          reversed: false
+          reversed: false,
+	  width:225
+        },
+	xAxis:{
+	  width:240,	
+	},
+	plotOptions: {	
+	    series: {
+	 	events: {
+                    mouseOver: function () {
+			
+                        var Ddata = [Highcharts.numberFormat(this.yData[0], 0, ','),Highcharts.numberFormat(this.yData[3], 0, ','),Highcharts.numberFormat(this.yData[5], 0, ','),Highcharts.numberFormat(this.yData[7], 0, ',')];
+		
+			for(var i=0; i<4; i++){
+
+			$("#display-data2 #SeriesData"+i).html(Ddata[i]);
+
+			}
+                    },
+                    mouseOut: function () {
+                        for(var i=0; i<4; i++){
+
+			$("#display-data2 #SeriesData"+i).empty();
+
+			}
+                    }
+                }
+            }
         },
         tooltip: {
           formatter: function() {
@@ -13976,7 +14235,7 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
       } else {
         this.demand_chart.addSeries({
           type: 'line',
-          name: 'Electricity demand in chosen scenario',
+          name: 'Electricity demand',
           data: data,
           lineColor: '#000',
           color: '#000',
@@ -13986,7 +14245,7 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
         }, false);
       }
       i++;
-      titles = ["Gas Power Stations", "Coal power stations", "Carbon Capture Storage (CCS)", "Electricity Balancing Requirement", "Nuclear power", "Hydro Power Generation", "Solar PV", "Solar CSP", "Onshore Wind", "Offshore Wind", "Small Hydro", "Biomass Based Electricity& Biogas", "Waste to Electricity", "Electricity imports"];
+      titles = ["Gas Power Stations", "Coal power stations", "Carbon Capture Storage", "Electricity Balancing Requirement", "Nuclear power", "Hydro Power Generation", "Solar PV", "Solar CSP", "Onshore Wind", "Offshore Wind", "Small Hydro", "Biomass Based Electricity & Biogas", "Waste to Electricity", "Electricity imports"];
       i = 0;
       for (_j = 0, _len1 = titles.length; _j < _len1; _j++) {
         name = titles[_j];
@@ -14007,7 +14266,7 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
       } else {
         this.supply_chart.addSeries({
           type: 'line',
-          name: 'Electricity supply in chosen scenario',
+          name: 'Electricity supply',
           data: data,
           lineColor: '#000',
           color: '#000',
@@ -14022,7 +14281,7 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
       for (_k = 0, _len2 = electricity_titles.length; _k < _len2; _k++) {
         name = electricity_titles[_k];
         data = this.pathway['electricity']['electricity_exports'][name];
-        console.log(this.pathway['electricity']['electricity_exports'][name]);
+        //console.log(this.pathway['electricity']['electricity_exports'][name]);
         data = data.map(function(x) {
           return Math.abs(x);
         });
@@ -14036,11 +14295,54 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
         }
         i++;
       }
+
+/**************************** Start Custom Legand ***********/
+
+var ChartArr = [this.demand_chart.series,this.supply_chart.series];
+
+var optionsArr = [this.demand_chart.options.legend,this.supply_chart.options.legend];
+
+var chartIdArr = ['#demand_chart','#supply_chart','#electricity_exports']; 
+
+// calling common layout of legand
+
+callCommon(chartIdArr);		
+
+// Creating legand
+// Display data of corresponding series on mouse over on legand item
+// On mouse over respective series will highlight and other will fade out
+// Data will display on mouse over on series area 
+
+	$("#custom-legend0").css({
+                    maxHeight: 'none',
+                    padding: '5px 0 10px 10px',
+		    right: '2px',
+		    top: '124px',
+		    width:68
+                });
+
+	$("#custom-legend1").css({
+                    maxHeight: 'none',
+                    padding: '5px 0 10px 10px',
+		    right: '-13px',
+		    top: '-4px',
+		    width:153
+                });
+
+        for(var L=0; L<2; L++){
+        $.each(ChartArr[L], function(i, series) {
+		chartSeries = ChartArr[L];
+		options = optionsArr[L];
+		callLegand(options,chartSeries,series,L);            
+        });		
+
+     	}
+/**************************** End Custom Legand ***********/
+
       this.demand_chart.redraw();
       this.supply_chart.redraw();
       this.electricity_exports.redraw();
-      document.getElementById("viewmessage").style.display = "inline-block";
-      return document.getElementById("viewmessage").innerHTML = "<h3> Is this scenario over-generating electricity ?  </h3> <p> Your chosen energy scenario creates a maximum of <b> " + Math.round(Math.abs(Math.min(this.pathway['electricity']['electricity_exports']["Electricity exports"][0], this.pathway['electricity']['electricity_exports']["Electricity exports"][1], this.pathway['electricity']['electricity_exports']["Electricity exports"][2], this.pathway['electricity']['electricity_exports']["Electricity exports"][3], this.pathway['electricity']['electricity_exports']["Electricity exports"][4], this.pathway['electricity']['electricity_exports']["Electricity exports"][5], this.pathway['electricity']['electricity_exports']["Electricity exports"][6], this.pathway['electricity']['electricity_exports']["Electricity exports"][7]))) + " </b> TWh/year of excess electricity, potentially available for exports. <br> <br> If your energy choices lead to exports, you may want to bring down conventional and/or renewable energy supplies a notch, or ramp up energy demand. </p>";
+      return document.getElementById("viewmessage").innerHTML = "<h3> Is this scenario over-generating electricity ?  </h3> <p> Your chosen energy scenario creates a maximum of <b> " + Math.round(Math.abs(Math.min(this.pathway['electricity']['electricity_exports']["Electricity exports"][0], this.pathway['electricity']['electricity_exports']["Electricity exports"][1], this.pathway['electricity']['electricity_exports']["Electricity exports"][2], this.pathway['electricity']['electricity_exports']["Electricity exports"][3], this.pathway['electricity']['electricity_exports']["Electricity exports"][4], this.pathway['electricity']['electricity_exports']["Electricity exports"][5], this.pathway['electricity']['electricity_exports']["Electricity exports"][6], this.pathway['electricity']['electricity_exports']["Electricity exports"][7]))) + " </b> TWh/year of excess electricity, potentially available for exports. If your energy choices lead to exports, you may want to bring down conventional and/or renewable energy supplies a notch, or ramp up energy demand. </p>";
     };
 
     return Electricity;
@@ -14070,19 +14372,16 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
       target.append("<div id='dependency_chart' class='chart'></div>");
       target.append("<div id='import_proportion_chart' class='chart'></div>");
       target.append("<div id='import_costs_chart' class='chart'></div>");
-      document.getElementById("dependency_chart").style.width = "23%";
-      document.getElementById("import_proportion_chart").style.width = "24%";
-      document.getElementById("import_costs_chart").style.width = "24%";
       document.getElementById("results").style.overflow = "inherit";
-      document.getElementById("viewmessage").style.width = "16%";
-      document.getElementById("viewmessage").style.margin = "1% 0% 1% 1%";
       this.dependency_chart = new Highcharts.Chart({
         chart: {
           renderTo: 'dependency_chart',
-          type: 'line'
+          type: 'line',
+	  height: 300	
         },
         title: {
           text: 'Import Dependence'
+
         },
         subtitle: {
           text: "Percentage of fossil fuels imported"
@@ -14090,9 +14389,11 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
         yAxis: {
           title: null,
           min: 0,
-          max: 100
+          max: 100,
+	  width:225
         },
         xAxis: {
+	  width:240,							
           labels: {
             formatter: function() {
               switch (this.value) {
@@ -14110,43 +14411,39 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
           value: 148400.,
           dashStyle: 'longdashdot'
         },
-        legend: {
-          enabled: true,
-          backgroundColor: 'rgba(0,0,0,0.1)',
-          floating: true,
-          align: 'right',
-          verticalAlign: 'bottom',
-          itemStyle: {
-            font: '8pt sans-serif'
-          },
-          itemDistance: '5pt',
-          layout: 'vertical',
-          left: 20,
-          labelFormatter: function() {
-            var numWordsPerLine, str, word, words;
-            words = this.name.split(/[\s]+/).splice(0, 2);
-            numWordsPerLine = 4;
-            str = [];
-            for (word in words) {
-              if (word > 0 && word % numWordsPerLine === 0) {
-                str.push("<br>");
-              }
-              str.push(words[word]);
+	plotOptions: {	
+	   series: {
+	 	events: {
+                    mouseOver: function () {
+			
+                        var Ddata = [Highcharts.numberFormat(this.yData[0], 0, ','),Highcharts.numberFormat(this.yData[3], 0, ','),Highcharts.numberFormat(this.yData[5], 0, ','),Highcharts.numberFormat(this.yData[7], 0, ',')];
+		
+			for(var i=0; i<4; i++){
+
+			$("#display-data0 #SeriesData"+i).html(Ddata[i]);
+
+			}
+                    },
+                    mouseOut: function () {
+                        for(var i=0; i<4; i++){
+
+			$("#display-data0 #SeriesData"+i).empty();
+
+			}
+                    }
+                }
             }
-            return str.join(" ");
-          }
         },
-        tooltip: {
-          formatter: function() {
-            return "<b>" + this.series.name + "</b><br/>" + this.x + ": " + (Highcharts.numberFormat(this.y, 0, ',')) + " % Imported";
-          }
+        legend: {
+          enabled: false
         },
         series: []
       });
       this.import_costs_chart = new Highcharts.Chart({
         chart: {
           renderTo: 'import_costs_chart',
-          type: 'column'
+          type: 'column',
+	  height: 300	
         },
         title: {
           text: 'Import Costs'
@@ -14158,6 +14455,7 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
           title: null,
           min: 0,
           max: 10000000,
+	  width:225,
           stackLabels: {
             enabled: false,
             style: {
@@ -14166,8 +14464,11 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
             }
           }
         },
+	xAxis: {
+	   width:240
+	},
         legend: {
-          enabled: true,
+          enabled: false,
           backgroundColor: 'rgba(0,0,0,0.1)',
           floating: true,
           align: 'center',
@@ -14201,7 +14502,26 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
           }
         },
         plotOptions: {
-          column: {
+          series: {
+	    events: {
+                    mouseOver: function () {
+			
+                        var Ddata = [Highcharts.numberFormat(this.yData[0], 0, ','),Highcharts.numberFormat(this.yData[3], 0, ','),Highcharts.numberFormat(this.yData[5], 0, ','),Highcharts.numberFormat(this.yData[7], 0, ',')];
+		
+			for(var i=0; i<4; i++){
+
+			$("#display-data2 #SeriesData"+i).html(Ddata[i]);
+
+			}
+                    },
+                    mouseOut: function () {
+                        for(var i=0; i<4; i++){
+
+			$("#display-data2 #SeriesData"+i).empty();
+
+			}
+                    }
+                },
             stacking: 'normal',
             dataLabels: {
               enabled: false,
@@ -14214,7 +14534,8 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
       return this.import_proportion_chart = new Highcharts.Chart({
         chart: {
           type: 'column',
-          renderTo: 'import_proportion_chart'
+          renderTo: 'import_proportion_chart',
+	  height: 300
         },
         title: {
           text: 'Oil, Gas & Coal Imports'
@@ -14225,8 +14546,12 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
         yAxis: {
           title: null,
           min: 0,
-          max: 40000
+          max: 40000,
+	  width:225
         },
+	xAxis: {
+	  width:240	
+	},
         tooltip: {
           formatter: function() {
             return "<b>" + this.series.name + "</b><br/>" + this.x + ": " + (Highcharts.numberFormat(this.y, 0, ',')) + " TWh/yr";
@@ -14234,37 +14559,34 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
         },
         plotOptions: {
           series: {
-            stacking: 'normal'
+	    events: {
+                    mouseOver: function () {
+			
+                        var Ddata = [Highcharts.numberFormat(this.yData[0], 0, ','),Highcharts.numberFormat(this.yData[3], 0, ','),Highcharts.numberFormat(this.yData[5], 0, ','),Highcharts.numberFormat(this.yData[7], 0, ',')];
+		
+			for(var i=0; i<4; i++){
+
+			$("#display-data1 #SeriesData"+i).html(Ddata[i]);
+
+			}
+                    },
+                    mouseOut: function () {
+                        for(var i=0; i<4; i++){
+
+			$("#display-data1 #SeriesData"+i).empty();
+
+			}
+                    }
+                },
+            stacking: 'normal',
+            dataLabels: {
+              enabled: false,
+              color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+            }
           }
         },
         legend: {
-          enabled: true,
-          backgroundColor: 'rgba(0,0,0,0.1)',
-          floating: true,
-          align: 'center',
-          verticalAlign: 'middle',
-          itemStyle: {
-            font: '8pt sans-serif'
-          },
-          itemDistance: '5pt',
-          layout: 'vertical',
-          left: 20,
-          labelFormatter: function() {
-            var numWordsPerLine, str, word, words;
-            if (this.name.toLowerCase() === "energy demand in least effort scenario") {
-              return "Least effort";
-            }
-            words = this.name.split(/[\s]+/).splice(0, 6);
-            numWordsPerLine = 4;
-            str = [];
-            for (word in words) {
-              if (word > 0 && word % numWordsPerLine === 0) {
-                str.push("<br>");
-              }
-              str.push(words[word]);
-            }
-            return str.join(" ");
-          }
+          enabled: false
         },
         series: []
       });
@@ -14306,10 +14628,28 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
         }
         i++;
       }
-      this.dependency_chart.series[3].color = "#000000";
+      this.dependency_chart.series[3].color = "#910000";
       this.dependency_chart.series[3].options.lineWidth = 3;
       this.dependency_chart.series[3].options.dashStyle = "longdashdot";
       i = 0;
+
+      data = this.pathway['import_costs']['Total Fuel Import Costs'];
+      if (this.import_costs_chart.series[i] != null) {
+        this.import_costs_chart.series[i].setData(data, false);
+      } else {
+        this.import_costs_chart.addSeries({
+          type: 'line',
+          name: 'Total import costs',
+          data: data,
+          lineColor: '#000',
+          color: '#910000',
+          lineWidth: 2,
+          dashStyle: 'Dot',
+          shadow: false
+        }, false);
+      }
+      i++;
+
       for (_j = 0, _len1 = titles_import_costs.length; _j < _len1; _j++) {
         name = titles_import_costs[_j];
         data = this.pathway['import_costs'][name];
@@ -14323,27 +14663,28 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
         }
         i++;
       }
-      data = this.pathway['import_costs']['Total Fuel Import Costs'];
-      if (this.import_costs_chart.series[i] != null) {
-        this.import_costs_chart.series[i].setData(data, false);
+      
+      i = 0;
+      data = this.pathway['import_proportions']['Overall imports'];
+      if (this.import_proportion_chart.series[i] != null) {
+        this.import_proportion_chart.series[i].setData(data, false);
       } else {
-        this.import_costs_chart.addSeries({
+        this.import_proportion_chart.addSeries({
           type: 'line',
-          name: 'Total import costs in chosen scenario',
+          name: 'Total imports',
           data: data,
           lineColor: '#000',
-          color: '#000',
+          color: '#910000',
           lineWidth: 2,
           dashStyle: 'Dot',
           shadow: false
         }, false);
       }
       i++;
-      i = 0;
       for (_k = 0, _len2 = titles_import_proportion.length; _k < _len2; _k++) {
         name = titles_import_proportion[_k];
         data = this.pathway['import_proportions'][name];
-        console.log(data);
+        //console.log(data);
         if (this.import_proportion_chart.series[i] != null) {
           this.import_proportion_chart.series[i].setData(data, false);
         } else {
@@ -14354,26 +14695,43 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
         }
         i++;
       }
-      data = this.pathway['import_proportions']['Overall imports'];
-      if (this.import_proportion_chart.series[i] != null) {
-        this.import_proportion_chart.series[i].setData(data, false);
-      } else {
-        this.import_proportion_chart.addSeries({
-          type: 'line',
-          name: 'Total imports in chosen scenario',
-          data: data,
-          lineColor: '#000',
-          color: '#000',
-          lineWidth: 2,
-          dashStyle: 'Dot',
-          shadow: false
-        }, false);
-      }
+      
+
+console.log(this.import_costs_chart.series);
+
+	
+/**************************** Start Custom Legand ***********/
+
+var ChartArr = [this.dependency_chart.series,this.import_proportion_chart.series,this.import_costs_chart.series];
+
+var optionsArr = [this.dependency_chart.options.legend,this.import_proportion_chart.options.legend,this.import_costs_chart.options.legend];
+
+var chartIdArr = ['#dependency_chart','#import_proportion_chart','#import_costs_chart']; 
+
+// calling common layout of legand
+
+callCommon(chartIdArr);		
+
+// Creating legand
+// Display data of corresponding series on mouse over on legand item
+// On mouse over respective series will highlight and other will fade out
+// Data will display on mouse over on series area 
+
+        for(var L=0; L<3; L++){
+        $.each(ChartArr[L], function(i, series) {
+		chartSeries = ChartArr[L];
+		options = optionsArr[L];
+		callLegand(options,chartSeries,series,L);            
+        });		
+
+     	}
+/**************************** End Custom Legand ***********/
+
+
       this.dependency_chart.redraw();
       this.import_costs_chart.redraw();
       this.import_proportion_chart.redraw();
-      document.getElementById("viewmessage").style.display = "inline-block";
-      return document.getElementById("viewmessage").innerHTML = "<h3> A note on fuel import prices  </h3> <p> Prices for imported fossil fuels (coal, oil and gas) are based on the IEA, World Energy Outlook 2035's Current Policy scenario.  <br> Fuel prices after 2035 have been maintained at 2035 levels, in the absence of any other credible projections for global prices of fossil fuel imports. Additionally, the prices of LNG have been taken to be the average of the US, Eurpean and Japanese import prices. <br> These prices are in real 2012 USD terms, assuming a coversion rate of 1 USD to INR 60. </p>";
+      return document.getElementById("viewmessage").innerHTML = "<h3> A note on fuel import prices  </h3> <p> Prices for imported fossil fuels (coal, oil and gas) are based on the IEA, World Energy Outlook 2035's Current Policy scenario.  <br> Fuel prices after 2035 have been maintained at 2035 levels, in the absence of any other credible projections for global prices of fossil fuel imports. Additionally, the prices of LNG have been taken to be the average of the US, Eurpean and Japanese import prices. These prices are in real 2012 USD terms, assuming a coversion rate of 1 USD to INR 60. </p>";
     };
 
     return EnergySecurity;
@@ -14397,8 +14755,6 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
       document.getElementById("results").style.width = "55%";
       document.getElementById("results").style.marginRight = "40px";
       document.getElementById("results").style.overflow = "inherit";
-      document.getElementById("viewmessage").style.width = "30%";
-      document.getElementById("viewmessage").style.margin = "30px 0px 30px 50px";
       return this.land_chart = new Highcharts.Chart({
         chart: {
           renderTo: 'land_use',
@@ -14456,7 +14812,6 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
 
     LandUse.prototype.teardown = function() {
       document.getElementById("viewmessage").style.display = "none";
-      document.getElementById("viewmessage").style.margin = "30px auto";
       document.getElementById("results").style.width = "100%";
       document.getElementById("results").style.marginRight = "0";
       document.getElementById("results").style.overflow = "hidden";
@@ -14499,7 +14854,6 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
         }, false);
       }
       this.land_chart.redraw();
-      document.getElementById("viewmessage").style.display = "inline-block";
       return document.getElementById("viewmessage").innerHTML = "<h3> How much land is that? </h3> <p> <ul> <li> Your chosen energy scenario has a land-area footprint of <b> " + ypsum.toFixed() + " </b>hectares, or " + (ypsum * 0.01 * 0.001).toFixed(2) + " thousand square km.  </li> <li> This is <b>" + (ypsum / 148400).toFixed(2) + " </b>times the size of Delhi</li> <li> This is <b>" + ((ypsum / 328759000).toFixed(2) * 100) + " </b>% of India's land area </li> </ul> </p>";
     };
 
@@ -17223,10 +17577,14 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
       target = $('#results');
       target.append("<div id='total_emissions_chart' class='chart'></div>");
       target.append("<div id='total_percapita_emissions_chart' class='chart'></div>");
-      target.append("<div id='emissions_chart_gdp' class='chart'></div>");
+      target.append("<div id='total_percapita_emissions_map' class='chart'><p style='color: #fff;margin-left: -70px;margin-top: 141px;text-align: center;'></p></div><img src='../../india4_trans.gif' alt='India map' style='position:absolute;height: 330px;right: 2.8%;top: 40px;width: 30%;' />");
+      //target.append("<div id='emissions_chart_gdp' class='chart'></div>");
+      $("#emissions_chart_gdp").css({marginLeft:'1.4%'});
       this.total_emissions_chart = new Highcharts.Chart({
         chart: {
-          renderTo: 'total_emissions_chart'
+          renderTo: 'total_emissions_chart',
+          height:300
+
         },
         title: {
           text: 'CO2 Emissions'
@@ -17237,11 +17595,15 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
         yAxis: {
           title: null,
           min: -1000,
-          max: 15000
+          max: 15000,
+	  width: 225
         },
+	xAxis: {
+	  width: 240	
+	},
         series: [],
         legend: {
-          enabled: true,
+          enabled: false,
           backgroundColor: 'rgba(0,0,0,0.1)',
           floating: true,
           align: 'center',
@@ -17274,7 +17636,8 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
       });
       this.total_percapita_emissions_chart = new Highcharts.Chart({
         chart: {
-          renderTo: 'total_percapita_emissions_chart'
+          renderTo: 'total_percapita_emissions_chart',
+ 	  height:300
         },
         title: {
           text: 'Per Capita CO2 Emissions'
@@ -17297,9 +17660,10 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
           }
         }
       });
-      return this.emissions_chart_gdp = new Highcharts.Chart({
+      return this.emissions_chart_gdp = '';/*new Highcharts.Chart({
         chart: {
-          renderTo: 'emissions_chart_gdp'
+          renderTo: 'emissions_chart_gdp',
+ 	  height:300
         },
         title: {
           text: 'Emission Intensity'
@@ -17321,7 +17685,7 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
             return "<b>" + this.series.name + "</b><br/>" + this.x + ": " + (Highcharts.numberFormat(this.y, 2, '.')) + " tCO2/Billion USD ";
           }
         }
-      });
+      }); */
     };
 
     Emissions.prototype.teardown = function() {
@@ -17350,6 +17714,21 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
         }
       }
       i = 0;
+      data = this.pathway['emissions_absolute']['Total'];
+      if (this.total_emissions_chart.series[i] != null) {
+        this.total_emissions_chart.series[i].setData(data, false);
+      } else {
+        this.total_emissions_chart.addSeries({
+          type: 'line',
+          name: 'Total emissions',
+          data: data,
+          lineColor: '#000',
+          color: '#000',
+          lineWidth: 2,
+          dashStyle: 'Dot',
+          shadow: false
+        }, false);
+      } i++;
       for (_j = 0, _len1 = titles.length; _j < _len1; _j++) {
         name = titles[_j];
         data = this.pathway['emissions_absolute'][name];
@@ -17363,22 +17742,50 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
         }
         i++;
       }
-      data = this.pathway['emissions_absolute']['Total'];
-      if (this.total_emissions_chart.series[i] != null) {
-        this.total_emissions_chart.series[i].setData(data, false);
-      } else {
-        this.total_emissions_chart.addSeries({
-          type: 'line',
-          name: 'Total emissions in chosen scenario',
-          data: data,
-          lineColor: '#000',
-          color: '#000',
-          lineWidth: 2,
-          dashStyle: 'Dot',
-          shadow: false
-        }, false);
-      }
-      i = 0;
+      
+
+        data_2047 = this.pathway['emissions_percapita']['Total'][7];
+	$("#total_percapita_emissions_map p").html(Highcharts.numberFormat(data_2047, 1, '.')+'<br>tCo2/capita');
+	$("#total_percapita_emissions_map").css({backgroundColor: '#fff',})
+	if(data_2047 > 2.5 && data_2047 <= 3){
+		$("#total_percapita_emissions_map").css({backgroundColor: '#E8E8E8',});
+	}
+	if(data_2047 > 3 && data_2047 <= 3.5){
+		$("#total_percapita_emissions_map").css({backgroundColor: '#D1D1D1',});
+	}	
+	if(data_2047 > 3.5 && data_2047 <= 4){
+		$("#total_percapita_emissions_map").css({backgroundColor: '#BABABA',});
+	}	
+	if(data_2047 > 4 && data_2047 <= 4.5){
+		$("#total_percapita_emissions_map").css({backgroundColor: '#A3A3A3',});
+	}
+	if(data_2047 > 4.5 && data_2047 <= 5){
+		$("#total_percapita_emissions_map").css({backgroundColor: '#8C8C8C',});
+	}
+	if(data_2047 > 5 && data_2047 <= 5.5){
+		$("#total_percapita_emissions_map").css({backgroundColor: '#757575',});
+	}	
+	if(data_2047 > 5.5 && data_2047 <= 6){
+		$("#total_percapita_emissions_map").css({backgroundColor: '#666666',});
+	}
+	if(data_2047 > 6 && data_2047 <= 6.5){
+		$("#total_percapita_emissions_map").css({backgroundColor: '#5E5E5E',});
+	}
+	if(data_2047 > 6.5 && data_2047 <= 7){
+		$("#total_percapita_emissions_map").css({backgroundColor: '#474747',});
+	}
+	if(data_2047 > 7 && data_2047 <= 7.5){
+		$("#total_percapita_emissions_map").css({backgroundColor: '#303030',});
+	}
+	if(data_2047 > 7.5 && data_2047 <= 8){
+		$("#total_percapita_emissions_map").css({backgroundColor: '#191919',});
+	}
+	if(data_2047 > 8 && data_2047 <= 8.5){
+		$("#total_percapita_emissions_map").css({backgroundColor: '#000',});
+	}
+
+        i = 0;
+
       for (_k = 0, _len2 = titles_percapita.length; _k < _len2; _k++) {
         name = titles_percapita[_k];
         data = this.pathway['emissions_percapita'][name];
@@ -17391,7 +17798,8 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
           }, false);
         }
         i++;
-      }
+      } 
+
       data = this.pathway['emissions_percapita']['Total'];
       if (this.total_percapita_emissions_chart.series[i] != null) {
         this.total_percapita_emissions_chart.series[i].setData(data, false);
@@ -17405,7 +17813,7 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
           lineWidth: 2,
           dashStyle: 'Dot',
           shadow: false
-        }, false);
+        }, false); 
         this.total_percapita_emissions_chart.addSeries({
           type: 'scatter',
           name: "China 2010 emissions",
@@ -17425,7 +17833,7 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
           color: 'Blue'
         });
       }
-      GDP = [4170367, 6416627, 9872775, 14506346, 20345901, 28536178, 38187844, 51103949];
+     /* GDP = [4170367, 6416627, 9872775, 14506346, 20345901, 28536178, 38187844, 51103949];
       GDP_USD = [695, 1069, 1645, 2418, 3391, 4756, 6365, 8517];
       for (_l = 0, _len3 = titles.length; _l < _len3; _l++) {
         name = titles[_l];
@@ -17466,8 +17874,40 @@ window.twentyfifty.choice_sizes = {"0":4,"2":4,"3":4,"5":4,"6":4,"7":4,"8":4,"9"
           dashStyle: 'Dot',
           shadow: false
         }, false);
-      }
-      this.emissions_chart_gdp.redraw();
+      } */
+
+/**************************** Start Custom Legand ***********/
+
+var ChartArr = [this.total_emissions_chart.series, this.total_percapita_emissions_chart.series];
+
+var optionsArr = [this.total_emissions_chart.options.legend, this.total_percapita_emissions_chart.options.legend];
+
+//var chartIdArr = ['#total_emissions_chart','#total_percapita_emissions_chart','#emissions_chart_gdp'];
+var chartIdArr = ['#total_emissions_chart','#total_percapita_emissions_chart'];
+
+// calling common layout of legand
+
+callCommon(chartIdArr);
+
+// Creating legand
+// Display data of corresponding series on mouse over on legand item
+// On mouse over respective series will highlight and other will fade out
+// Data will display on mouse over on series area 
+
+
+	$("#custom-legend0").css({top: 43, maxHeight:'none'});	
+
+        for(var L=0; L<1; L++){
+        $.each(ChartArr[L], function(i, series) {
+		chartSeries = ChartArr[L];
+		options = optionsArr[L];
+		callLegand(options,chartSeries,series,L);            
+        });		
+
+     	}
+/**************************** End Custom Legand ***********/
+
+      //this.emissions_chart_gdp.redraw();
       this.total_emissions_chart.redraw();
       return this.total_percapita_emissions_chart.redraw();
     };

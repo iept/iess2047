@@ -17,46 +17,36 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <div class="" style="background-color: #fff;float: left;position: fixed;width: 100%;">
     <div class='tour_1' id='topbar2'>
-	<div class='menu1'>
-	<ul class='menu'>	
+      <ul class='menu'>
         <li id='messages'>
-          <a href='http://indiaenergy.gov.in'>Home</a>
+          <a href='http://indiaenergy.gov.in'>India Energy Security Scenarios, 2047</a>
         </li>
         <li>
           <div id='help'>
             <a href='http://indiaenergy.gov.in/about_howto.php' id='helpLink'>Help</a>
           </div>
         </li>
-	</ul>
-	</div>
-	<div class='menu2'>
-	<ul class='menu'>	
         <li>
-          <a href='#' onclick="twentyfifty.switchView('primary_energy_chart'); style_option('primary_energy_chart')">All Energy</a>
+          <a href='#' onclick="twentyfifty.switchView('primary_energy_chart')">All Energy</a>
         </li>
         <li>
-          <a href='#' onclick="twentyfifty.switchView('electricity'); style_option('electricity')">Electricity</a>
+          <a href='#' onclick="twentyfifty.switchView('electricity')">Electricity</a>
         </li>
         <li>
-          <a href='#' onclick="twentyfifty.switchView('energy_security'); style_option('energy_security')">Energy Security</a>
+          <a href='#' onclick="twentyfifty.switchView('energy_security')">Energy Security</a>
         </li>
         <li>
-          <a href='#' onclick="twentyfifty.switchView('emissions'); style_option('emissions')">Emissions</a>
+          <a href='#' onclick="twentyfifty.switchView('emissions')">Emissions</a>
         </li>
         <li>
-          <a href='#' onclick="twentyfifty.switchView('sankey'); style_option('sankey');">Energy Flows</a>
+          <a href='#' onclick="twentyfifty.switchView('sankey')">Energy Flows</a>
         </li>
         <li>
-          <a href='#' onclick="twentyfifty.switchView('map'); style_option('map')">Land Area</a>
+          <a href='#' onclick="twentyfifty.switchView('map')">Land Area</a>
         </li>
-	</ul>
-	</div>
-	<div class='menu3'>
-	      <ul class='menu'>	
-        <li style="padding:7px">
-           Example Pathways
+        <li>
+          Example Pathways
           <ul>
             <li>
               <a href='#' onclick="twentyfifty.switchPathway('1011011111111110111110111001111011101111011011101');$('ul#savedpathway_choices').toggle()">Least Effort Scenario (All at level 1)</a>
@@ -79,23 +69,24 @@
             <li>
               <a href='#' onclick="twentyfifty.switchPathway('2024014224333310444440444002222022202222022022204');$('ul#savedpathway_choices').toggle()">Max Energy Security (Determined Effort in Demand Sectors)</a>
             </li>
-           <!-- <li>
+            <li>
               <a href='#' onclick="twentyfifty.switchPathway('0000000000000000000000000000000000000000000000000');$('ul#savedpathway_choices').toggle()"></a>
-            </li> -->
+            </li>
           </ul>
         </li>
         <li>
           <div id='share'>
-            <a href='#' onclick="twentyfifty.switchView('share'); style_option('share')">Share</a>
+            <a href='#' onclick="twentyfifty.switchView('share')">Share</a>
           </div>
         </li>
       </ul>
-     </div>
-
     </div>
     <div id='results'></div>
-  </div>
-    <div class='tour_2' id='classic_controls' style="margin-top: 36%;">
+    <div class='papers tour_5' id='viewmessage'>
+      <h3>Hi, this is my paper.</h3>
+      <p>see how cool this looks</p>
+    </div>
+    <div class='tour_2' id='classic_controls'>
       <div class='tour_3' id='demand'>
         <h2>Choices around Demand</h2>
         <table>
@@ -153,45 +144,10 @@
         </table>
       </div>
     </div>
-<div style="clear:both;"></div>
-<div class='papers tour_5' id='viewmessage'></div>
     <div id='tooltip'></div>
     <div id='footer'>
       Based on <a href='http://indiaenergy.gov.in/doc/IES2047-24th%20Jan-final.xlsx'>excel version 1.0.6</a>. The source code for this site is available under an open source licence from
       <a href='https://github.com/iept/iess2047'>https://github.com/iept/iess2047</a>
     </div>
   </body>
-<script type="text/javascript">
-	var str = document.URL; 
-    		var n = str.search('sankey');
-		if(n != -1)
-		{
-			document.getElementById("classic_controls").style.marginTop = "56%";
-		} else{
-			document.getElementById("classic_controls").style.marginTop = "31%";
-		}
-	function style_option(marginT){
-			if(marginT == 'sankey')
-			{
-			document.getElementById("classic_controls").style.marginTop = "56%";	
-			}else{
-	 		document.getElementById("classic_controls").style.marginTop = "31%";
-			}
-
-			if(marginT == 'sankey' || marginT == 'emissions'){
-			document.getElementById("viewmessage").style.display = "none";			
-			}else{
-			document.getElementById("viewmessage").style.display = "inline-block";		
-			}
-	}
-$(document).ready(function(){
-    var $targetElement = $("ul.menu a");           
-    $targetElement.click(function() {
-       $targetElement.removeClass("active");
-       $(this).addClass("active");
-    });
-});
-		
-</script>
-
 </html>
